@@ -6,6 +6,7 @@ import 'package:chat_app/pages/HomePage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 
@@ -16,8 +17,8 @@ var uuid = Uuid();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Stripe.publishableKey =
-  //     "pk_test_51PJfrASBrmLFXTbxYeEcHXnxY5ZgEWHFCEqRTgWllq8UOvv3EY2rLSyX2DbJKgpoPB8AdfUMVSD6aB9x73j2gdPh00uf4UKlxe";
+  Stripe.publishableKey =
+      "pk_test_51PJfrASBrmLFXTbxYeEcHXnxY5ZgEWHFCEqRTgWllq8UOvv3EY2rLSyX2DbJKgpoPB8AdfUMVSD6aB9x73j2gdPh00uf4UKlxe";
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   User? currentUser = FirebaseAuth.instance.currentUser;
 
@@ -39,7 +40,7 @@ void main() async {
 
 // when i am not logged in then run this
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  // const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
